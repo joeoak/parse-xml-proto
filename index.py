@@ -9,7 +9,8 @@ def parse_xml(file_name):
 
     # Print all elements in the XML file
     for elem in root.iter():
-        print(f'Element: {elem.tag}, Value: {elem.text}')
+        tag = elem.tag.split('}')[-1]  # This will remove the namespace
+        print(f'{tag}: {elem.text}')
 
 if __name__ == "__main__":
-    parse_xml('file.xml')
+    parse_xml('data/file.xml')
